@@ -72,9 +72,16 @@ export function BatchPrediction() {
     }, 500);
 
     try {
+      // Headers needed for ngrok
+      const headers = {
+        'ngrok-skip-browser-warning': 'true',
+      };
+
       // Check if API is available first
       try {
-        const healthCheck = await fetch('https://08da-103-212-43-204.ngrok-free.app:5000/health');
+        const healthCheck = await fetch('https://08da-103-212-43-204.ngrok-free.app/health', {
+          headers
+        });
         if (!healthCheck.ok) {
           throw new Error('ML API server is not running. Please start the Flask server.');
         }
@@ -85,9 +92,12 @@ export function BatchPrediction() {
       const formData = new FormData();
       formData.append('file', file, file.name);
 
-      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app:5000/predict/batch', {
+      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/predict/batch', {
         method: 'POST',
         body: formData,
+        headers: {
+          'ngrok-skip-browser-warning': 'true',
+        },
         // Don't set Content-Type header - let the browser set it with boundary for FormData
       });
 
