@@ -1,11 +1,16 @@
-import { Calendar, MapPin, TrendingUp, Users } from "lucide-react";
+'use client';
+
+import { Calendar, MapPin, TrendingUp, Users, BarChart3, Bot } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function DashboardHeader() {
+  const pathname = usePathname();
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+          <Link href="/dashboard" className="flex items-center space-x-4 hover:opacity-80 transition-opacity">
             <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">A</span>
             </div>
@@ -13,7 +18,7 @@ export function DashboardHeader() {
               <h1 className="text-2xl font-bold text-gray-900">Airbnb Analytics</h1>
               <p className="text-sm text-gray-600">Business Intelligence Dashboard</p>
             </div>
-          </div>
+          </Link>
           
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
@@ -23,23 +28,78 @@ export function DashboardHeader() {
           </div>
         </div>
         
-        <div className="mt-6 flex space-x-6">
-          <div className="flex items-center space-x-2 px-4 py-2 bg-red-50 rounded-lg">
+        <div className="mt-6 flex flex-wrap gap-4">
+          <Link 
+            href="/dashboard"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard' 
+                ? 'bg-gray-100 border-2 border-gray-200' 
+                : 'bg-gray-50 hover:bg-gray-100'
+            }`}
+          >
+            <BarChart3 className="w-5 h-5 text-gray-600" />
+            <span className="text-sm font-medium text-gray-700">Overview</span>
+          </Link>
+          
+          <Link 
+            href="/dashboard/price-location"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard/price-location' 
+                ? 'bg-red-100 border-2 border-red-200' 
+                : 'bg-red-50 hover:bg-red-100'
+            }`}
+          >
             <MapPin className="w-5 h-5 text-red-500" />
             <span className="text-sm font-medium text-red-700">Harga & Lokasi</span>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-2 bg-blue-50 rounded-lg">
+          </Link>
+          
+          <Link 
+            href="/dashboard/availability-performance"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard/availability-performance' 
+                ? 'bg-blue-100 border-2 border-blue-200' 
+                : 'bg-blue-50 hover:bg-blue-100'
+            }`}
+          >
             <TrendingUp className="w-5 h-5 text-blue-500" />
             <span className="text-sm font-medium text-blue-700">Ketersediaan & Performa</span>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-2 bg-green-50 rounded-lg">
+          </Link>
+          
+          <Link 
+            href="/dashboard/review-trends"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard/review-trends' 
+                ? 'bg-green-100 border-2 border-green-200' 
+                : 'bg-green-50 hover:bg-green-100'
+            }`}
+          >
             <Users className="w-5 h-5 text-green-500" />
             <span className="text-sm font-medium text-green-700">Review & Tren</span>
-          </div>
-          <div className="flex items-center space-x-2 px-4 py-2 bg-purple-50 rounded-lg">
+          </Link>
+          
+          <Link 
+            href="/dashboard/host-listing"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard/host-listing' 
+                ? 'bg-purple-100 border-2 border-purple-200' 
+                : 'bg-purple-50 hover:bg-purple-100'
+            }`}
+          >
             <Users className="w-5 h-5 text-purple-500" />
             <span className="text-sm font-medium text-purple-700">Host & Listing</span>
-          </div>
+          </Link>
+          
+          <Link 
+            href="/dashboard/price-prediction"
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all hover:shadow-md ${
+              pathname === '/dashboard/price-prediction' 
+                ? 'bg-blue-100 border-2 border-blue-200' 
+                : 'bg-blue-50 hover:bg-blue-100'
+            }`}
+          >
+            <Bot className="w-5 h-5 text-blue-500" />
+            <span className="text-sm font-medium text-blue-700">ML Prediction</span>
+          </Link>
         </div>
       </div>
     </header>

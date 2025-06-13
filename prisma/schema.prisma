@@ -12,7 +12,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  // directUrl = env("DIRECT_URL")
 }
 
 // Dimension Tables
@@ -61,7 +61,8 @@ model DimRoomType {
 }
 
 model DimDate {
-  date        DateTime @id @db.Date
+  id          String @id @db.Uuid
+  date        DateTime @db.Date
   day         Int?
   month       Int?
   year        Int?
@@ -81,7 +82,7 @@ model FactListingDaily {
   host_id                         String @db.Uuid
   location_id                     String @db.Uuid
   room_type_id                    String @db.Uuid
-  date_id                         DateTime @db.Date
+  date_id                         String @db.Uuid
   price                           Int?
   availability_365                Int?
   number_of_reviews               Int?
@@ -93,7 +94,7 @@ model FactListingDaily {
   host      DimHost     @relation(fields: [host_id], references: [id])
   location  DimLocation @relation(fields: [location_id], references: [id])
   room_type DimRoomType @relation(fields: [room_type_id], references: [id])
-  date      DimDate     @relation(fields: [date_id], references: [date])
+  date      DimDate     @relation(fields: [date_id], references: [id])
   
   @@map("fact_listing_daily")
 }

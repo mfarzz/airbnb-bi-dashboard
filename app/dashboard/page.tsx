@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
-import { MapPin, TrendingUp, MessageSquare, Users, ArrowRight, BarChart3 } from "lucide-react";
+import { MapPin, TrendingUp, MessageSquare, Users, ArrowRight, BarChart3, Bot } from "lucide-react";
 
 export default function Dashboard() {
   return (
@@ -16,7 +16,7 @@ export default function Dashboard() {
           </p>
           
           {/* Dashboard Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {/* Harga & Lokasi */}
             <Link href="/dashboard/price-location" className="group">
               <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
@@ -97,6 +97,27 @@ export default function Dashboard() {
                   <li>• Host dengan listing terbanyak</li>
                   <li>• Distribusi host berdasarkan jumlah listing</li>
                   <li>• Insights performance host</li>
+                </ul>
+              </div>
+            </Link>
+
+            {/* ML Price Prediction */}
+            <Link href="/dashboard/price-prediction" className="group">
+              <div className="bg-white p-6 rounded-xl shadow-sm border hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                    <Bot className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">ML Price Prediction</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  Prediksi harga listing menggunakan Machine Learning
+                </p>
+                <ul className="space-y-1 text-xs text-gray-500">
+                  <li>• Prediksi harga berdasarkan fitur listing</li>
+                  <li>• Batch prediction untuk multiple listing</li>
+                  <li>• Model insights dan performance metrics</li>
                 </ul>
               </div>
             </Link>
