@@ -54,7 +54,7 @@ export function ModelInfo() {
 
       // Check if API is available first
       try {
-        const healthCheck = await fetch('http://localhost:5000/health');
+        const healthCheck = await fetch('https://08da-103-212-43-204.ngrok-free.app/health');
         if (!healthCheck.ok) {
           throw new Error('ML API server is not running. Please start the Flask server.');
         }
@@ -62,7 +62,7 @@ export function ModelInfo() {
         throw new Error('Cannot connect to ML API server. Please ensure the Flask server is running on port 5000.');
       }
 
-      const response = await fetch('http://localhost:5000/model/info');
+      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/model/info');
       
       if (!response.ok) {
         let errorMessage = `HTTP error! status: ${response.status}`;

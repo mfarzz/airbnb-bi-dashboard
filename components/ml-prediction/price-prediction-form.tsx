@@ -139,7 +139,7 @@ export function PricePredictionForm({ onPredictionResult }: PricePredictionFormP
         throw new Error('Please fill in all required fields');
       }
 
-      const response = await fetch('http://localhost:5000/predict', {
+      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
