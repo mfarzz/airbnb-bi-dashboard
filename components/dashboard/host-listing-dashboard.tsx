@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import {  PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { Users, Home, Crown, TrendingUp } from "lucide-react";
 
 interface HostListingData {
@@ -210,7 +210,7 @@ export function HostListingDashboard() {
           </div>
         </div>
 
-        {/* Listings by Host Range */}
+        {/* Listings by Host Range
         <div className="bg-white p-6 rounded-lg border">
           <div className="flex items-center gap-2 mb-4">
             <Home className="w-5 h-5 text-blue-500" />
@@ -238,7 +238,7 @@ export function HostListingDashboard() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-        </div>
+        </div> */}
 
         {/* Top Hosts Table */}
         <div className="lg:col-span-2 bg-white rounded-lg border">

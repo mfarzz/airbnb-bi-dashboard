@@ -60,7 +60,7 @@ export function ModelInfo() {
 
       // Check if API is available first
       try {
-        const healthCheck = await fetch('https://08da-103-212-43-204.ngrok-free.app/health', {
+        const healthCheck = await fetch('https://thermal-wonder-463113-i4.et.r.appspot.com/health', {
           headers
         });
         if (!healthCheck.ok) {
@@ -70,7 +70,7 @@ export function ModelInfo() {
         throw new Error('Cannot connect to ML API server. Please ensure the Flask server is running on port 5000.');
       }
 
-      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/model/info', {
+      const response = await fetch('https://thermal-wonder-463113-i4.et.r.appspot.com/model/info', {
         headers
       });
       

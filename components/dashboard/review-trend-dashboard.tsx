@@ -206,7 +206,7 @@ export function ReviewTrendDashboard() {
             <Calendar className="h-8 w-8 text-green-500" />
           </div>
         </div>
-        <div className="bg-white p-6 rounded-lg border">
+        {/* <div className="bg-white p-6 rounded-lg border">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Growth Rate</p>
@@ -216,7 +216,7 @@ export function ReviewTrendDashboard() {
             </div>
             <TrendingUp className={`h-8 w-8 ${reviewGrowth >= 0 ? 'text-green-500' : 'text-red-500'}`} />
           </div>
-        </div>
+        </div> */}
         <div className="bg-white p-6 rounded-lg border">
           <div className="flex items-center justify-between">
             <div>

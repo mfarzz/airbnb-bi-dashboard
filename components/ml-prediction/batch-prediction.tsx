@@ -79,7 +79,7 @@ export function BatchPrediction() {
 
       // Check if API is available first
       try {
-        const healthCheck = await fetch('https://08da-103-212-43-204.ngrok-free.app/health', {
+        const healthCheck = await fetch('https://thermal-wonder-463113-i4.et.r.appspot.com/health', {
           headers
         });
         if (!healthCheck.ok) {
@@ -92,7 +92,7 @@ export function BatchPrediction() {
       const formData = new FormData();
       formData.append('file', file, file.name);
 
-      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/predict/batch', {
+      const response = await fetch('https://thermal-wonder-463113-i4.et.r.appspot.com/predict/batch', {
         method: 'POST',
         body: formData,
         headers: {

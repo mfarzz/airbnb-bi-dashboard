@@ -139,7 +139,7 @@ export function PricePredictionForm({ onPredictionResult }: PricePredictionFormP
         throw new Error('Please fill in all required fields');
       }
 
-      const response = await fetch('https://08da-103-212-43-204.ngrok-free.app/predict', {
+      const response = await fetch('https://thermal-wonder-463113-i4.et.r.appspot.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
